@@ -16,6 +16,7 @@ export default function Home(){
     
     function handleAddNewSkill(){
         setMySkills([...mySkills, newSkill]);
+        setNewSkill('');
     }
 
 
@@ -28,6 +29,7 @@ export default function Home(){
                 placeholder="New skill"
                 placeholderTextColor="#555"
                 onChangeText={setNewSkill}
+                value={newSkill}
             />
             <Button 
                 title="Add" 
