@@ -29,6 +29,10 @@ export default function Home(){
         setNewSkill('');
     }
 
+    function handleRemoveSkill(key: string) {
+        setMySkills(mySkills.filter(skill => skill.id !== key));
+    }
+
     useEffect(() => {
         let currentHours = new Date().getHours();
 
@@ -67,7 +71,10 @@ export default function Home(){
                 data={mySkills}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => (
-                    <SkillCard skill={item.name}/>
+                    <SkillCard 
+                        skill={item.name} 
+                        onPress={() => handleRemoveSkill(item.id)}
+                    />
                 )}
             />
         </SafeAreaView>
